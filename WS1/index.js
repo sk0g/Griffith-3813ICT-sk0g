@@ -13,4 +13,12 @@ if (badWord === "bad word") {
 }
 
 console.log(badWord);
+<<<<<<< HEAD
 console.log("I caused a merge conflict");
+=======
+console.log(add_function());
+
+function add_function() {
+    return(5+10);
+}
+>>>>>>> Add function done for WS2
