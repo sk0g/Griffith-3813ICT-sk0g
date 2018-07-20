@@ -7,10 +7,10 @@ var mistype  = "Spwlling";
 myString = myString.replace("@", " ")
 myString = myString.substring(0, myString.lastIndexOf("ss"));
 console.log(myString);
-console.log("I caused a merge conflict");
 
 if (badWord === "bad word") {
     badWord = "****";
 }
 
 console.log(badWord);
+console.log("I caused a merge conflict");
