@@ -1,25 +1,23 @@
 <html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                console.log("ready!");
+                $.get('/getData', )
+                    .done(function (data) {
+                        $('#message').html(data);
+                    });
+            });
+        </script>
 
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            console.log("ready!");
-            $.get('/getData', )
-                .done(function (data) {
-                    $('#message').html(data);
-                });
-        });
-    </script>
+        <title>
+            index.js test page
+        </title>
+    </head>
 
-    <title>
-        index.js test page
-    </title>
-</head>
-
-<body>
-    <h1> Hello! </h1>
-    <div id="message"></div>
-</body>
-
+    <body>
+        <h1> Hello! </h1>
+        <div id="message"></div>
+    </body>
 </html>
