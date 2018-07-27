@@ -3,23 +3,17 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
-            $('#login').on('click', function (event) {
-                event.preventDefault();
+            $(document).ready(function() {
+                $('#login').on('click', function (event) {
+                    event.preventDefault();
 
-                var formdata;
-
-                function update_formdata() {
-                    formdata = $('loginForm').serialize();
-                    console.log(formdata);
-                }
-
-                $.ajax({
-                    type: "POST",
-                    contentType: "application/json",
-                    url: window.location + "Submit",
-                    data: JSON.stringify(formdata),
-                    dataType: "JSON",
-                    success: update_formdata()
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json",
+                        url: "/loginSubmit",
+                        data: JSON.stringify($('#loginForm').serializeArray()),
+                        dataType: "JSON",
+                    });
                 });
             });
         </script>
