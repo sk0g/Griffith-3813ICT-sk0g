@@ -1,7 +1,9 @@
 var express = require('express');
 var app     = express();
+var parser  = require('body-parser');
 var http    = require('http').Server(app);
 
+app.use(parser.json());
 app.use(express.static(__dirname + '/www'));
 
 var server = http.listen(3000, function() {
@@ -26,4 +28,34 @@ app.get('/account', function(req, res) {
 
 app.get('/getData', function(req, res) {
     res.send("<h1> HELLO! </h1>");
-})
+});
+
+app.post('/loginSubmit', function(req, res) {
+    console.log("login Submitting");
+    console.log(req.body);
+});
+
+function display_data() {
+    console.log("data being logged", req.body.username);
+}
+
+function isValid(email, password) {
+    var valid_items = [['admin', 'password'],
+                       ['hacker', '1337pass'],
+                       ['abcd', '1963']];
+    
+    valid_items.forEach(element => {
+        if (element[0] === email && element[1] === password) {
+            return true;
+        }
+    });
+    return false;
+}
+
+function checkData(email, password) {
+    if (isValid(email, password)) {
+        return(JSON.stringify({"ok":true}));
+    } else {
+        return(JSON.stringify({"ok":false, errors:{}}));
+    }
+}
