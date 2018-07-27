@@ -1,14 +1,13 @@
 <html>
+
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- <script>
-            $('#login').on('click', function(event){
+        <script>
+            $('#login').on('click', function (event) {
                 event.preventDefault();
-            });
 
-            $(document).on("ready", function() {
                 var formdata;
-            
+
                 function update_formdata() {
                     formdata = $('loginForm').serialize();
                     console.log(formdata);
@@ -17,25 +16,29 @@
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: window.location + "/loginSubmit",
+                    url: window.location + "Submit",
                     data: JSON.stringify(formdata),
                     dataType: "JSON",
                     success: update_formdata()
                 });
             });
-            </script> -->
+        </script>
         <title>
             Login Page
         </title>
     </head>
 
     <body>
-        <form id="loginForm" method="POST" action="/loginSubmit">
-            Email <input type="text" name="email" id="email"></input> <br>
-            Password <input type="password" name="password" id="password"></input> <br>
+        <form id="loginForm">
+            Email
+            <input type="text" name="email" id="email"></input>
+            <br> Password
+            <input type="password" name="password" id="password"></input>
+            <br>
             <input type="submit" value="Login" id="login"></input>
         </form>
 
         <div id="postResults"></div>
     </body>
+
 </html>
