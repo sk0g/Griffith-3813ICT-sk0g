@@ -32,7 +32,9 @@ app.get('/getData', function(req, res) {
 
 app.post('/loginSubmit', function(req, res) {
     console.log("login Submitting");
-    console.log(req.body);
+    var email = req.body[0]['value'];
+    var password = req.body[1]['value'];
+    console.log(email, password);
 });
 
 function display_data() {
