@@ -46,10 +46,6 @@ app.post('/loginSubmit', function(req, res) {
     }
 });
 
-function display_data() {
-    console.log("data being logged", req.body.username);
-}
-
 function isValid(email, password) {
     var valid_items = [['admin', 'password'],
                        ['hacker', '1337pass'],
