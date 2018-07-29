@@ -31,10 +31,19 @@ app.get('/getData', function(req, res) {
 });
 
 app.post('/loginSubmit', function(req, res) {
-    console.log("login Submitting");
     var email = req.body[0]['value'];
     var password = req.body[1]['value'];
-    console.log(email, password);
+
+    if (isValid(email, password)) {
+        return res.status(200).send({
+            success: true
+        });
+    } else {
+        return res.status(403).send({
+            success: false,
+            errors: "Incorrect credentials"
+        });
+    }
 });
 
 function display_data() {
@@ -46,18 +55,12 @@ function isValid(email, password) {
                        ['hacker', '1337pass'],
                        ['abcd', '1963']];
     
-    valid_items.forEach(element => {
-        if (element[0] === email && element[1] === password) {
-            return true;
-        }
-    });
-    return false;
-}
+    for (var i = 0; i < valid_items.length; i++) {
+      var current = valid_items[i];
 
-function checkData(email, password) {
-    if (isValid(email, password)) {
-        return(JSON.stringify({"ok":true}));
-    } else {
-        return(JSON.stringify({"ok":false, errors:{}}));
+      if (current[0] === email && current[1] === password) {
+        return true;
+      }
     }
+    return false;
 }

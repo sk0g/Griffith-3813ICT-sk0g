@@ -6,17 +6,26 @@
             $(document).ready(function() {
                 $('#login').on('click', function (event) {
                     event.preventDefault();
-                    
-                    console.log(JSON.stringify(
-                        $('#loginForm').serializeArray()
-                    ));
 
                     $.ajax({
                         type: "POST",
                         contentType: "application/json",
                         url: "/loginSubmit",
                         data: JSON.stringify($('#loginForm').serializeArray()),
-                        dataType: "JSON",
+                        dataType: "json",
+                        contentTYpe: "json",
+                        success: function(data) {
+                            console.log(data);
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.log(jqXHR,
+                                        textStatus,
+                                        errorThrown);
+                        }
+                        // statusCode: {
+                        //     200: console.log("Logged in successfuly"),
+                        //     403: console.log("Invalid credentials")
+                        // }
                     });
                 });
             });
