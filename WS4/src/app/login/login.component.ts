@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
     username:string = '';
     password:string = '';
+    hasWorked:boolean = false;
     validLogins:Array<[string, string]> = [
         ['Allan', '123'],
         ['admin', 'password'],
@@ -32,7 +33,11 @@ export class LoginComponent implements OnInit {
             if (this.username == element[0] &&
                 this.password == element[1]) {
                     this.router.navigateByUrl('/account');
+                    this.hasWorked = true;
                 }
         });
+        if (!this.hasWorked) {
+            alert("Username/ password incorrect");
+        }
     }
 }
