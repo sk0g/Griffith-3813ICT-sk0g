@@ -6,7 +6,7 @@ import { AccountComponent } from './account/account.component';
 const routes:Routes = [
     {path:'login', component:LoginComponent},
     {path:'account', component:AccountComponent}
-]
+];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
