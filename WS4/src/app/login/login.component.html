@@ -1,6 +1,6 @@
-<form>
-    <input type="email" placeholder="email@address.com" name="em-address" id="em-address"> <br>
-    <input type="password" placeholder="password" name="password" id="password"> <br>
+<form (submit)="loginUser($event)">
+    <input type="email"     placeholder="username" [(ngModel)]="username" name="username" id="username"> <br>
+    <input type="password"  placeholder="password"          [(ngModel)]="password" name="password" id="password"> <br>
     <button type="submit">Submit</button>
 </form>
 <br>
